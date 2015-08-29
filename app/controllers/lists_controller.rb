@@ -1,14 +1,18 @@
 class ListsController < ApplicationController
 
   def index
-    @lists = List.all
+    @lists = List.order("created_at DESC")
     @list = List.new
   end
 
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to root_path
+      if request.xhr?
+        render :layout => false
+      else
+        redirect_to root_path
+      end
     else
       @lists = List.all
       render :index
