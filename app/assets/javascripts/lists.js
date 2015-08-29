@@ -1,28 +1,35 @@
 $(function(){
-  $("form").on("submit",(function(e){
+  $("form").on("submit", function(e){
     e.preventDefault();
     var $form = $(this);
 
+    // What needs to happen?
+    // Send the info to the create method.
+    
+    // we need the form data
     var data = $form.serialize();
     var url = $form.attr("action");
 
     var method_input = $("input[name=_method]", $form)[0];
-
+    
     if (method_input){
-      var method = $(method_input).attr("value") 
+      var method = $(method_input).attr("value")
     } else {
-      var method = $form.attr("method")
+      var method = $form.attr("method")  
     }
 
-    //var name = $(this).find("#list_name").val();
-    
 
     $.ajax({
-      method: method,
-      url: url,
       data: data,
-      //this line makes the response form JS and not html
-      dataType: 'script'
+      url: url,
+      method: method,
+      dataType: "script"
     });
-  });
+
+     // but also i should look at the _method input
+    // we need an ajax request
+      // we need the url/method of that request
+
+    // insert the new list we just made into the DOM
+  });  
 });

@@ -1,7 +1,7 @@
 <section class="todoapp">
   <header class="header">
     <h1>todos</h1>
-    <%= form_for(@list) do |f| %>
+    <%= form_for(@list, remote: :true) do |f| %>
       <%= f.text_field :name, :class => "new-todo", :placeholder => "Enter a name for a new list..." %>
       <button style="display: none" type="submit"></button>
     <% end %>

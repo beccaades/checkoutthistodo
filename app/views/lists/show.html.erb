@@ -1,16 +1,16 @@
 <section class="todoapp">
   <header class="header">
     <h1><%= @list.name %></h1>
-    <%= form_for(@list.items.build, :remote => true) do |f| %>
-      <%= f.text_field :name, :class => "new-todo", :placeholder => "Enter a name for a new list..." %>
-    <% end %>
+    <%#= form_for(@list.items.build, :remote => true) do |f| %>
+      <%#= f.text_field :name, :class => "new-todo", :placeholder => "Enter a name for a new list..." %>
+    <%# end %>
   </header>
   <section class="main">
     <input class="toggle-all" type="checkbox">
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
-      <%= render @lists %>
+      <%= render @list.items %>
+      <%#= render :collection => @list.items, :partial => "items/item" %>
     </ul>
   </section>
 </section>
-

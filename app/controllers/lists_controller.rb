@@ -8,16 +8,18 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      if request.xhr?
-        render :layout => false
-      else
-        redirect_to root_path
+      respond_to do |format|
+        format.html {redirect_to root_path}
+        format.js
       end
     else
       @lists = List.all
       render :index
     end
-    #raise params.inspect
+  end
+
+  def show
+    @list = List.find(params[:id])
   end
 
   private
