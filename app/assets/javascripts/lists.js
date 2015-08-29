@@ -33,3 +33,14 @@
 //     // insert the new list we just made into the DOM
 //   });  
 // });
+
+$(function(){
+  $("li.item label").on("dblclick", function(){
+    $(this).parents("li").toggleClass("editing");
+    $(this).parents("li").find("input[name='item[content]']").focus();
+  });
+  $("input[name='item[content]']").on("blur", function(){
+    $(this).parents("li").toggleClass("editing");
+    $(this).parents("form").trigger("submit");
+  });
+});

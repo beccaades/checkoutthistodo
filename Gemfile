@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+#doesn't hinder JQuery from working
+gem 'jquery-turbolinks'
 
 gem 'pry'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
