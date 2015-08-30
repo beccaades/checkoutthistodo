@@ -35,12 +35,12 @@
 // });
 
 $(function(){
-  $("li.item label").on("dblclick", function(){
+  $("ul").on("dblclick", "label", function(){
     $(this).parents("li").toggleClass("editing");
     $(this).parents("li").find("input[name='item[content]']").focus();
   });
-  $("input[name='item[content]']").on("blur", function(){
-    $(this).parents("li").toggleClass("editing");
+
+  $("ul").on("blur", "input[name='item[content]']", function(){
     $(this).parents("form").trigger("submit");
-  });
+  })
 });
