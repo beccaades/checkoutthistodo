@@ -2,10 +2,11 @@
   <div class="view">
     <input class="toggle" type="checkbox" checked="">
     <label><%= list.name %></label>
+    <%= link_to "Delete", list, method: :delete %>
     <button class="destroy"></button>
   </div>
   <%= form_for(list, remote: :true) do |f| %>
     <%= f.text_field :name, :class => "edit" %>
-  <% end %>
+  <% end %>  
 </li>
 
