@@ -1,5 +1,11 @@
-<li>
+<li class="editing">
   <div class="view">
-    <label><%= link_to list.name, list %></label>
+    <input class="toggle" type="checkbox" checked="">
+    <label><%= list.name %></label>
+    <button class="destroy"></button>
   </div>
+  <%= form_for(list, remote: :true) do |f| %>
+    <%= f.text_field :name, :class => "edit" %>
+  <% end %>
 </li>
+

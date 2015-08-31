@@ -19,8 +19,13 @@ class ListsController < ApplicationController
     end
   end
 
-  def show
+  def update
     @list = List.find(params[:id])
+    if @list.update(list_params)
+      redirect_to :back
+    else
+      render 'list/show'
+    end
   end
 
   private
