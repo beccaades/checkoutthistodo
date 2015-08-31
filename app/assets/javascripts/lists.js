@@ -37,10 +37,9 @@
 $(function(){
   $("ul").on("dblclick", "label", function(){
     $(this).parents("li").toggleClass("editing");
-    $(this).parents("li").find("input[name='item[content]']").focus();
+    $(this).parents("li").find("input[name='list[name]']").focus();
   });
-
-  $("ul").on("blur", "input[name='item[content]']", function(){
+  $("ul").on("blur","input[name='list[name]']" , function(){
     $(this).parents("form").trigger("submit");
-  })
+  });
 });
