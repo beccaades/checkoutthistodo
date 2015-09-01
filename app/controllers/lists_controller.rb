@@ -8,6 +8,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     if @list.save
       if request.xhr?
+        @lists = List.all
         # somehow only send back the html for the page update
         render :layout => false
       else
