@@ -31,6 +31,7 @@ class ListsController < ApplicationController
 
   def destroy
     @list = List.find_by(params[:id])
+    @list_id = params[:id]
     @list.destroy
     @lists = List.all
 
