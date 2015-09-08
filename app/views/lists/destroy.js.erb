@@ -1,0 +1,3 @@
+var id = "<%= @list.id %>";
+$("#" + id).slideUp();
+$("span.todo-count").html("<strong><%= @lists.count %></strong><%= pluralize_without_count(' item', @lists.count) %>");

@@ -1,7 +1,7 @@
 <li class="list" data-id="<%=list.id%>">
-  <div class="view">
+  <div class="view" id="<%=list.id%>">
     <input class="toggle" type="checkbox" checked="">
-    <%= button_to "Delete", { action: "destroy", id: list.id }, method: :delete, :class => "destroy" %>
+      <%= button_to "Delete", { action: "destroy", id: list.id }, method: :delete, :class => "destroy", remote: true %>
     <label><%= list.name %></label>
   </div>
   <%= form_for(list, remote: :true) do |f| %>

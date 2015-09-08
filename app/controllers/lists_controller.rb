@@ -32,8 +32,12 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find_by(params[:id])
     @list.destroy
+    @lists = List.all
 
-    redirect_to lists_path 
+    respond_to do |format|
+      format.html { redirect_to lists_path }
+      format.js #rails default: go to views/todos/destroy.js.erb
+    end
   end
 
   private
